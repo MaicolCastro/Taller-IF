@@ -1,54 +1,53 @@
-let TMÑ = prompt("Ingrese el tamaño de su sandwich (pequeño o grande)").toLowerCase();
-let T = prompt("¿Desea tocineta? (si/no)").toLowerCase();
-let J = prompt("¿Desea jalapeño? (si/no)").toLowerCase();
-let P = prompt("Desea pavo? (si/no)").toLowerCase();
-let Q = prompt("¿Desea queso? (si/no)").toLowerCase();
+// Solicitamos al usuario que ingrese el tamaño del sándwich y lo convertimos a minúsculas
+let TMÑ = prompt("Ingrese el tamaño de su sándwich (pequeño o grande)").toLowerCase();
+// Solicitamos al usuario que ingrese si desea tocineta y lo convertimos a minúsculas
+let T = prompt("¿Desea tocineta? (sí/no)").toLowerCase();
+// Solicitamos al usuario que ingrese si desea jalapeño y lo convertimos a minúsculas
+let J = prompt("¿Desea jalapeño? (sí/no)").toLowerCase();
+// Solicitamos al usuario que ingrese si desea pavo y lo convertimos a minúsculas
+let P = prompt("¿Desea pavo? (sí/no)").toLowerCase();
+// Solicitamos al usuario que ingrese si desea queso y lo convertimos a minúsculas
+let Q = prompt("¿Desea queso? (sí/no)").toLowerCase();
 
-let CB;
+let CB; // Variable para almacenar el costo base del sándwich
+let CA = 0; // Variable para almacenar el costo adicional
 
-if (TMÑ === "pequeño") {
+// Comenzamos el bucle do while
+do {
+    // Evaluamos el tamaño del sándwich
+    if (TMÑ === "pequeño") {
+        CB = 6000; // Costo base para sándwich pequeño
+    } else if (TMÑ === "grande") {
+        CB = 12000; // Costo base para sándwich grande
+    } else {
+        alert(`Tamaño no válido.`);
+        CB = 0; // Asignamos 0 si el tamaño no es válido
+    }
 
-    CB = 6000;
+    // Evaluamos las opciones adicionales y sumamos el costo correspondiente
+    if (T === "sí") {
+        CA += 3000; // Costo adicional por tocineta
+    }
 
-} else if (TMÑ === "grande") {
+    if (J === "sí") {
+        CA += 0; // Sin costo adicional por jalapeño
+    }
 
-    CB = 12000;
+    if (P === "sí") {
+        CA += 3000; // Costo adicional por pavo
+    }
 
-} else {
+    if (Q === "sí") {
+        CA += 2500; // Costo adicional por queso
+    }
 
-    alert(`Tamaño no valido.`);
-    CB = 0;
+    // Calculamos el costo total
+    let CT = CB + CA;
 
-}
+    // Verificamos si el costo base es diferente de cero para asegurarnos de que se ingresaron los valores correctos
+    if (CB !== 0) {
+        alert(`El costo total del pedido es: ${CT}`);
+    }
 
-let CA = 0;
-
-if (T === "si"){
-
-    CA += 3000;
-
-} 
-
-if (J === "si"){
-
-    CA += 0;
-
-} 
-
-if (P === "si"){
-
-    CA += 3000;
-
-}
-
-if (Q === "si"){
-
-    CA += 2500;
-}
-
-let CT = CB + CA;
-
-if(CB !== 0){
-
-    alert(`El costo total del pedido es: ${CT}`)
-}
+// La condición del bucle es false para asegurarnos de que el bucle se ejecute solo una vez
+} while (false);
